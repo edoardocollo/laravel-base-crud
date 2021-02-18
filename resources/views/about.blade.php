@@ -6,9 +6,9 @@
   </head>
   <body>
     <h1>about</h1>
-    <a href="{{route('index')}}">home</a>
-    <a href="{{route('about')}}">about</a>
-    <a href="{{route('blog')}}">blog</a>
+    <a href="/">home</a>
+    <a href="about">about</a>
+    <a href="blog">blog</a>
 
   </body>
 </html>

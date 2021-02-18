@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class Post extends Controller
+use App\Post;
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,10 @@ class Post extends Controller
      */
     public function index()
     {
-        //
+
+
+        $posts = Post::all();
+        return view('blog',compact('posts')); 
     }
 
     /**

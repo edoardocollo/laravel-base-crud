@@ -13,7 +13,7 @@
     <a href="about">about</a>
     <a href="blog">blog</a>
     <a href="blog/create">create post</a>
-    @foreach ($posts ?? '' as $key => $post)
+    @foreach ($posts as $key => $post)
     <p>post con id: {{ $post->id }}</p>
     <h2>{{$post->titolo}}</h2>
     <p>{{$post->contenuto}}</p>

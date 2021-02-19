@@ -43,9 +43,9 @@ class BlogController extends Controller
       $post->contenuto = $request->contenuto;
 
       $post->save();
-      return view('posts.create');
+      // return view('posts.create');
 
-
+      return redirect()->route('blog.index');
      }
     /**
      * Display the specified resource.
@@ -91,7 +91,8 @@ class BlogController extends Controller
     {
       $post = Post::find($id);
      $post->delete();
-     return view('posts.index');
+     // return view('blog.index');
+     return redirect()->route('blog.index');
 
     }
 }

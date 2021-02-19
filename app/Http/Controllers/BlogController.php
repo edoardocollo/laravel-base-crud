@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Post;
 class BlogController extends Controller
@@ -16,7 +15,7 @@ class BlogController extends Controller
 
 
         $posts = Post::all();
-        return view('blog',compact('posts')); 
+        return view('posts.index',compact('posts'));
     }
 
     /**
@@ -26,7 +25,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+      return view('posts.create');
+
     }
 
     /**
@@ -35,11 +35,18 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+     public function store(Request $request)
+     {
+       $post = new Post;
 
+      $post->titolo = $request->titolo;
+      $post->contenuto = $request->contenuto;
+
+      $post->save();
+      return view('posts.create');
+
+
+     }
     /**
      * Display the specified resource.
      *
@@ -82,6 +89,9 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $post = Post::find($id);
+     $post->delete();
+     return view('posts.index');
+
     }
 }
